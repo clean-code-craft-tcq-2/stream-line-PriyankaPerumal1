@@ -3,7 +3,7 @@ try:
     ### IO operation ###
 except IOError as e:
     if e.errno == errno.EPIPE:
-        ### Handle the error ###
+        ###Handle the error ###
 
 
 def GetDataFromConsoleSenderOutput():
