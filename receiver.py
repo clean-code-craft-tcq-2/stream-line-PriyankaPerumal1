@@ -50,10 +50,10 @@ def calculateMinMaxReading(readings):
     return {'min': minReading, 'max': maxReading}
 
 def calculateMinReading(readings):
-    return min(readings)
+    return min(readings,default="EMPTY")
 
 def calculateMaxReading(readings):
-    return max(readings)
+    return max(readings,default="EMPTY")
 
 def GetDataFromConsoleSenderOutput():
   datastream = readDataFromConsole()
