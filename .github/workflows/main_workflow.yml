@@ -38,3 +38,15 @@ jobs:
       - name: Command redirection and pipeline
         run: |
           python sender.py | python receiver.py
+          
+      - name: Run and collect coverage
+        run: |
+          coverage run --branch test_receiver.py.py
+          coverage html
+          coverage report
+      - name: Upload coverage
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: ./htmlcov
+          retention-days: 21
