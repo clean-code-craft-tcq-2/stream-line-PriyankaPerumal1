@@ -1,7 +1,6 @@
 import sys
 from signal import signal, SIGPIPE, SIG_DFL 
-#Ignore SIG_PIPE and don't throw exceptions on it... (http://docs.python.org/library/signal.html)
-signal(SIGPIPE,SIG_DFL) 
+#Ignore SIG_PIPE and don't throw exceptions on it... (http://docs.python.org/library/signal.html) 
 
 
 def readFromConsole():
@@ -22,4 +21,4 @@ def GetDataFromConsoleSenderOutput():
   mergedreadings = formulateReadings(stream)
   print("helloo")
   print(mergedreadings)
-  print("hello again")
+  print("helloo again")
