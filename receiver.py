@@ -62,12 +62,12 @@ def printOnConsole(string):
     print(string)
     return True
 
-def GetDataFromConsoleSenderOutput():
+def GetDataFromConsoleSenderOutput(SampleSizeForSMA):
   datastream = readDataFromConsole()
   ArrayOfReadings = formulateReadingsToProperFormat(datastream)
   for param in BMSparameters:
     readings = extractParameterReading(ArrayOfReadings, param)
     minMaxReading = calculateMinMaxReading(readings)
-    movingAverage = calculateMovingAverage(readings, 5)
+    movingAverage = calculateMovingAverage(readings, SampleSizeForSMA)
     formattedOutputString = convertOperationResultsToCSVFormat(param,minMaxReading,movingAverage)
     printOnConsole(formattedOutputString)
