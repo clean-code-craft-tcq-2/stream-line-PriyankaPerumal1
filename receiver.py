@@ -55,11 +55,19 @@ def calculateMinReading(readings):
 def calculateMaxReading(readings):
     return max(readings,default="EMPTY")
 
+def convertOperationResultsToCSVFormat(parameter,minMaxReading,movingAverage):
+  return f'{parameter}:{minMaxReading},{movingAverage}'
+
+def printOnConsole(string):
+    print(string)
+    return True
+
 def GetDataFromConsoleSenderOutput():
   datastream = readDataFromConsole()
   ArrayOfReadings = formulateReadingsToProperFormat(datastream)
   for param in BMSparameters:
     readings = extractParameterReading(ArrayOfReadings, param)
-    movingAverage = calculateMovingAverage(readings, 5)
     minMaxReading = calculateMinMaxReading(readings)
-    
+    movingAverage = calculateMovingAverage(readings, 5)
+    formattedOutputString = convertOperationResultsToCSVFormat(param,minMaxReading,movingAverage)
+    printOnConsole(formattedOutputString)
