@@ -4,8 +4,21 @@ from signal import signal, SIGPIPE, SIG_DFL
 signal(SIGPIPE,SIG_DFL) 
 
 
+def segregateTemperatureandChargerate(line,temperature,charge_rate):
+  index=0
+  if "temperature" in line[index]:
+    while(not("charge_rate" in line[index])):
+      temperature.append(line[index])
+      index = index+1
+    for i in range(index,len(line)):
+      charge_rate.append(line[i])
+  return temperature,charge_rate
+
 def GetDataFromConsoleSenderOutput():
-  print("i am here")
   for line in sys.stdin:
-     line=line.split(',')
-     print(line)
+    temperature = []
+    charge_rate = []
+    
+    line=line.split(',')
+    temperature,charge_rate = segregateTemperatureandChargerate(line,temperature,charge_rate)
+    print(temperature,charge_rate)
