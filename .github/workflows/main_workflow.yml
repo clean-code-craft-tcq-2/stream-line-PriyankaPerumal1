@@ -23,6 +23,8 @@ jobs:
           # exit-zero treats all errors as warnings.
           flake8 . --count --exit-zero --max-line-length=80 --ignore=E111,E121,E126 --statistics
       - run: python sender.py
+        name: Run_Receiver
+      - run: python test_sender.py | python receiver.py
       - name: Run and collect coverage
         run: |
           coverage run --branch test_sender.py
