@@ -21,4 +21,5 @@ def GetDataFromConsoleSenderOutput():
     
     line=line.split(',')
     temperature,charge_rate = segregateTemperatureandChargerate(line,temperature,charge_rate)
+    print("hello")
     print(temperature,charge_rate)
