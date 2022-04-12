@@ -39,7 +39,7 @@ jobs:
       - run: python test_sender.py
       - name: Command redirection and pipeline
         run: |
-          python test_sender.py | python receiver.py
+          python test_sender.py | python test_receiver.py
           
       - name: Run and collect coverage
         run: |
