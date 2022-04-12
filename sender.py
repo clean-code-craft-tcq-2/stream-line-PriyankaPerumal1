@@ -1,8 +1,5 @@
 import sender_stub
 
-from signal import signal, SIGPIPE, SIG_DFL  
-signal(SIGPIPE,SIG_DFL) 
-
 def celcius_to_Farenheit_convertor(temperature):
     return round(((temperature * 1.8) + 32),2)
 
