@@ -1,9 +1,7 @@
-import sys, errno
-try:
-    ### IO operation ###
-except IOError as e:
-    if e.errno == errno.EPIPE:
-        ###Handle the error ###
+import sys
+from signal import signal, SIGPIPE, SIG_DFL 
+#Ignore SIG_PIPE and don't throw exceptions on it... (http://docs.python.org/library/signal.html)
+signal(SIGPIPE,SIG_DFL) 
 
 
 def GetDataFromConsoleSenderOutput():
