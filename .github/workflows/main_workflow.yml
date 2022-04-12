@@ -37,7 +37,7 @@ jobs:
           
       - name: Command redirection and pipeline
         run: |
-          python sender.py | python receiver.py
+          python test_sender.py | python receiver.py
           
       - name: Run and collect coverage
         run: |
