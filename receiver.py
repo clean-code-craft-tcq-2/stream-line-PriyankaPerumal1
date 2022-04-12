@@ -20,6 +20,6 @@ def formulateReadings(stream):
 def GetDataFromConsoleSenderOutput():
   stream = readFromConsole()
   mergedreadings = formulateReadings(stream)
-  print("hello")
+  print("helloo")
   print(mergedreadings)
   print("hello again")
