@@ -4,22 +4,22 @@ from signal import signal, SIGPIPE, SIG_DFL
 signal(SIGPIPE,SIG_DFL) 
 
 
-def segregateTemperatureandChargerate(line,temperature,charge_rate):
-  index=0
-  if "temperature" in line[index]:
-    while(not("charge_rate" in line[index])):
-      temperature.append(line[index])
-      index = index+1
-    for i in range(index,len(line)):
-      charge_rate.append(line[i])
-  return temperature,charge_rate
+def readFromConsole():
+    signal(SIGPIPE,SIG_DFL)
+    lines = sys.stdin.readlines()
+    return lines
 
+def formulateReadings(stream):
+  mergedReadings = []
+  for csvReading in stream:
+      csvReading = csvReading.strip('\n')
+      reading = list(map(float,csvReading.split(',')))
+      mergedReadings.append(reading)
+  return mergedReadings
+  
 def GetDataFromConsoleSenderOutput():
-  for line in sys.stdin:
-    temperature = []
-    charge_rate = []
-    
-    line=line.split(',')
-    temperature,charge_rate = segregateTemperatureandChargerate(line,temperature,charge_rate)
-    print("helloo")
-    print(temperature,charge_rate)
+  stream = readFromConsole()
+  mergedreadings = formulateReadings(stream)
+  print("hello")
+  print(mergedreadings)
+  print("hello again")
