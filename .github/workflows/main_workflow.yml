@@ -35,6 +35,8 @@ jobs:
           path: ./htmlcov
           retention-days: 21
           
+      - run: python sender.py
+      - run: python test_sender.py
       - name: Command redirection and pipeline
         run: |
           python test_sender.py | python receiver.py
